@@ -1,0 +1,327 @@
+:root{
+    --main-color: rgba(0, 0, 0, 0.9);
+    --color-text:rgb(199, 4, 4) ;
+    --hover-text:rgb(250, 250, 250);
+}
+
+html{
+    height: 100%;
+}
+body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+/* описание header*/
+header{
+    background-color: var(--main-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 15%;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.8) ;
+}
+
+.logo{
+    width: 20%;
+    margin-left: 40px;
+}
+
+.logo img{
+    width: 90px;
+    height: 70px;
+    animation: lofoanim 3s infinite ease-in-out;
+}
+
+.menu{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.menu_nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.menu_nav a{
+    margin-right: 40px;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: linear .2s;
+    font-size: 20px;
+}
+.menu_nav a:hover{
+    color: var(--hover-text);
+    transition: linear .2s;
+}
+
+.menu_nav a>button ,button{
+    border: none;
+    width: 160px;
+    height: 50px;
+    background-color: var(--color-text);
+    color: var(--hover-text);
+    transition: ease-in .4s;
+}
+.menu_nav a>button{
+    box-shadow:  0 0 2px 2px var(--main-color) inset;
+}
+
+.menu_nav a>button:hover ,button:hover{
+    background-color: var(--hover-text);
+    color: var(--color-text);
+    transition: ease-in .4s;
+    cursor: pointer;
+}
+button:hover{
+    border: 1px var(--color-text) solid;
+}
+
+
+/* описание main*/
+
+.container{
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.news{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+/* отображение окна */
+.display{
+    display: none;
+}
+.display_block{
+    display: none;
+}
+
+.news_item{
+    min-height: 150px;
+    max-height: 300px;
+    width: 97%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 200px;
+    transition: ease-in-out 0.3s;
+    animation: open .7s ease-in;
+    opacity: 0.6;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2) ;
+}
+.news_item:hover{
+    opacity: 1;
+    width: 100%;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+
+.news_item-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-height: 150px;
+    width: 20%;
+    padding-left: 15px;
+
+}
+.news_item-img>img{
+    max-height: 150px;
+    object-fit:cover;
+    width: 100%;
+    height: 80%;
+}
+
+.news_item-text{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.text_name{
+    height: 20%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-bottom: 1.5px solid black;
+}
+.text_name-item{
+    font-size: 28px;
+    font-weight: 2;
+}
+.text_desc{
+    width: 90%;
+    height: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.text_date, .text_views{
+    height: 10%;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    opacity: 0.7;
+}
+
+/* описание footer*/
+footer{
+    background-color: var(--main-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-height: 10%;
+    color: var(--color-text);
+}
+.about_mail , .about_number, .about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.about_mail-name , .about_number-name{
+    color: var(--hover-text);
+}
+
+@media screen and (max-width: 910px){
+    .menu_nav a, .about_mail , .about_number, .about{
+        font-size: 14px;
+    }
+    .menu_nav a>button ,button{
+        border: none;
+        width: 120px;
+        height: 40px;
+        background-color: var(--color-text);
+        color: var(--hover-text);
+        transition: ease-in .4s;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:400px){
+    .menu_nav a, .about_mail , .about_number, .about{
+        font-size: 10px;
+        flex-direction: column;
+        align-self: center;
+    }
+    .about_mail , .about_number{
+        width: 100px;
+    }
+    header{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-height: 20%
+    }
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 ;
+    }
+    .menu{
+        align-items: center;
+        justify-content: center;
+    }
+    .menu_nav{
+        flex-direction: column;
+    }
+    .menu_nav a{
+        font-size: 14px;
+        margin-right: 0;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: linear .2s;
+    }
+    .menu_nav a>button ,button{
+        border: none;
+        width: 100px;
+        height: 30px;
+        background-color: var(--color-text);
+        color: var(--hover-text);
+        transition: ease-in .4s;
+    }
+    .news{
+        height: auto;
+    }
+    .news_item{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px black solid;
+        min-height: 200px;
+    }
+    .news_item-img{
+        display: none;
+    }
+    .text_name-item{
+        font-size: 16px;
+    }
+    .text_desc-item{
+        font-size: 12px;
+    }
+    .text_date,.text_views{
+        font-size: 12px;
+    }
+}
+
+@keyframes lofoanim {
+    0%{ opacity: 0.8;
+        border-radius: 10%;
+
+    }
+    50%{
+        opacity: 0.5;
+        border-radius: 50%;
+    }
+    100%{
+        border-radius: 10%;
+        opacity: 0.8;
+    }
+}
+
+@keyframes open {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

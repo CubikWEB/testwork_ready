@@ -1,0 +1,34 @@
+{% extends 'testworkapp/base.html' %}
+{% load static %}
+
+{% block addstyle %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+
+{% block title %}
+    Добавить новость
+{% endblock %}
+
+{% block main %}
+
+    <div class="addnews">
+                <form action="#" method="post" class="addnews_form">
+                    <div>
+                        <label for="name_article">Введите имя статьи</label>
+                        <input type="text" placeholder="Имя статьи" name="name_article">
+                    </div>
+                    <div>
+                        <label for="text_article">Введите текст статьи</label>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Текст статьи" name="text_article"></textarea>
+                    </div>
+                    <div>
+                        <label for="img_article" >Добавить изображение</label>
+                        <input type="file"  id="file" accept="image/*" name="img_article">
+                    </div>
+                    <div class="div-addnews_form-btn">
+                        <button type="submit" class="addnews_form-btn">Добавить новость</button>
+                    </div>
+                </form>
+            </div>
+
+{% endblock %}

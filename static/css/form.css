@@ -1,0 +1,94 @@
+.addnews{
+    height: 80%;
+}
+form.addnews_form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+form.addnews_form>div:not(:last-child){
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    margin: 40px;
+    width: 50%;
+    height: auto;
+}
+
+form.addnews_form input[type="text"]{
+    width: 70%;
+    max-height: 30px;
+    font-size: 20px;
+}
+
+form.addnews_form textarea{
+    width: 70%;
+    min-height: 150px;
+}
+.div-addnews_form-btn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: center;
+}
+@media screen and (max-width: 910px){
+    .addnews{
+
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    form.addnews_form>div{
+        margin: 5px;
+        width: 70%;
+    }
+
+    form.addnews_form input[type="text"]{
+        width: 70%;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    form.addnews_form textarea{
+        width: 70%;
+        min-height: 100px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .addnews{
+
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    form.addnews_form>div{
+        width: 100%;
+    }
+
+    form.addnews_form input[type="text"]{
+        width: 100%;
+        height: 30px;
+        font-size: 12px;
+    }
+    label{
+        display: none;
+    }
+    form.addnews_form textarea{
+        width: 100%;
+        min-height: 100px;
+    }
+    .addnews_form-btn{
+        width: 80px;
+        height: 40px;
+        font-size: 12px;
+    }
+}

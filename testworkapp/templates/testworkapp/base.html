@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/openarticle.css' %}">
+    {% block addstyle %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="#"></a>
+        </div>
+        <div class="menu">
+            <nav class="menu_nav">
+                <a href="{% url 'home' %}">Главная</a>
+                <a href="index.html">Новости</a>
+                <a href="index.html">О нас</a>
+                <a href="index.html">Обратная связь</a>
+                <a href="{% url 'addnews' %}"><button>Добавить новость</button></a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            {% block main %}{% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="about">
+            <div class="about_mail">
+                <div class="about_mail-name">Our email: </div>
+                <div class="about_mail-text">MyMail@mail.ru</div>
+            </div>
+            <div class="about_number">
+                <div class="about_number-name">Our number: </div>
+                <div class="about_number-text">+79001112233</div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/openarticle.js' %}"></script>
+</body>
+</html>
