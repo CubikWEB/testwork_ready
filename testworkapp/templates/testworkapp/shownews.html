@@ -1,0 +1,53 @@
+{% extends 'testworkapp/base.html' %}
+
+{% block main %}
+
+
+    <div class="open_article" id="{{ news.id }}">
+        <div class="open_article-back">
+            <a href="{% url 'home' %}">
+                <button>Назад</button>
+            </a>
+        </div>
+        <div class="open_article-name">
+            {{ news.title }}
+        </div>
+        <div class="open_article-text">
+            <div class="news_item-img open_article-img">
+                <img src="{{ news.img.url }}" alt="#">
+            </div>
+            <div class="open_article-desc">
+                {{ news.desc }}
+            </div>
+        </div>
+        <div class="open_article-date">
+            {{ news.date }}
+        </div>
+    </div>
+
+    {% for com in comments %}
+        <div class="text_comments">
+            <div class="text_comments-item">
+                <div class="text_comments-item_name">{{ com.nameUser }}</div>
+                <div class="text_comments-item_text">{{ com.Text }}</div>
+                <div class="text_comments-item_date">{{ com.date }}</div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="add_comm">
+    <form method="post" class="add_comm-form">
+        {% csrf_token %}
+        <div class="">
+
+        </div>
+        <div class="div-addcom_form-text">
+            {{ formaddcom.Text }}
+        </div>
+        <div class="div-addcom_form-btn">
+            <button type="submit" class="addcomm_form-btn">Добавить комментарий</button>
+        </div>
+    </form>
+    </div>
+    {{ error }}
+{% endblock %}

@@ -1,68 +1,51 @@
 {% extends 'testworkapp/base.html' %}
-
+{% load static %}
 {% block title %}
     Главная
 {% endblock %}
 
 {% block main %}
-
     <div class="news">
-                <div class="news_item">
+    {% for el in news %}
+         <div class="news_item" id="{{ el.id }}">
                     <div class="news_item-img">
-                        <img src="IMG/kalmar.jpg" alt="#">
+                        <img src="{{ el.img.url }}" alt="#">
                     </div>
                     <div class="news_item-text">
+                        <div>
+                            <a href="shownews/{{ el.id }}">
+                                <button>Показать новость</button>
+                            </a>
+                        </div>
                         <div class="text_name">
                             <div class="text_name-item">
-                                MyFirst news
+                                {{ el.title}}
                             </div>
                         </div>
                         <div class="text_desc">
                             <div class="text_desc-item">
-                                This text about my first news.
+                                {{ el.desc}}
                             </div>
                         </div>
                         <div class="text_date">
                             <div class="text_date-item">
-                                22-01-22
+                                {{ el.date }}
                             </div>
                         </div>
                         <div class="text_views">
                             <div class="text_views-item">
-                                2
+                                {{ el.views }}
                                 <span> просмотра(ов)</span>
                             </div>
                         </div>
+                        <div>
+                            <a href="edit/{{ el.id }}"><button type="submit">Редактировать</button></a>
+                        </div>
+
                     </div>
                 </div>
-                <div class="news_item">
-                    <div class="news_item-img">
-                        <img src="IMG/simp.jpg" alt="#">
-                    </div>
-                    <div class="news_item-text">
-                        <div class="text_name">
-                            <div class="text_name-item">
-                                MySecond news
-                            </div>
-                        </div>
-                        <div class="text_desc">
-                            <div class="text_desc-item">
-                                This text about my second news.
-                            </div>
-                        </div>
-                        <div class="text_date">
-                            <div class="text_date-item">
-                                22-01-22
-                            </div>
-                        </div>
-                        <div class="text_views">
-                            <div class="text_views-item">
-                                1
-                                <span> просмотра(ов)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    {% endfor %}
+    </div>
+
 
 {% endblock %}

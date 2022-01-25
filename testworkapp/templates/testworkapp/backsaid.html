@@ -1,1 +1,28 @@
 {% extends 'testworkapp/base.html' %}
+{% load static %}
+
+
+{% block addstyle %}
+    <link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+{% endblock %}
+
+
+{% block  main %}
+    <div class="addnews">
+                <form action="" method="post" class="addnews_form" >
+                    {% csrf_token %}
+                    <div>
+                        <label>Введите отзыв</label>
+                        {{ addSaids.Text }}
+                    </div>
+                    <div>
+                        <label>Введите email</label>
+                        {{ addSaids.Email }}
+                    </div>
+                    <div class="div-addnews_form-btn">
+                        <button type="submit" class="addnews_form-btn">Добавить отзыв</button>
+                    </div>
+                    {{ error }}
+                </form>
+      </div>
+{% endblock %}

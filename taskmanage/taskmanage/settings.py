@@ -120,8 +120,10 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = 'static/'
 
 #media fail
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+SITE_ROOT = os.path.dirname(__file__)
+THUMBNAIL_DEBUG = True
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 # Default primary key field type

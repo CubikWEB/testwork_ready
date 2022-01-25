@@ -27,7 +27,6 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-height: 15%;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.8) ;
 }
 
@@ -93,9 +92,8 @@ button:hover{
 /* описание main*/
 
 .container{
-    height: 100%;
     width: 90%;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .news{
@@ -228,6 +226,46 @@ footer{
     }
 }
 
+@media screen and (max-width: 650px){
+    header{
+    min-height: 200px;
+    }
+    .menu_nav a, .about_mail , .about_number, .about{
+        font-size: 10px;
+        flex-direction: column;
+        align-self: center;
+    }
+    .about_mail , .about_number{
+        width: 100px;
+    }
+    header{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .logo {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .menu{
+        align-items: center;
+        justify-content: center;
+    }
+    .menu_nav{
+        flex-direction: column;
+    }
+    .menu_nav a {
+        font-size: 16px;
+        margin-right: 0;
+    }
+}
+
+
 @media screen and (max-width:400px){
     .menu_nav a, .about_mail , .about_number, .about{
         font-size: 10px;
@@ -243,7 +281,6 @@ footer{
         flex-direction: column;
         align-items: center;
         width: 100%;
-        min-height: 20%
     }
     .logo{
         display: flex;

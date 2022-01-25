@@ -1,0 +1,25 @@
+{% extends 'testworkapp/base.html' %}
+
+{% load static %}
+
+
+{% block addstyle %}
+    <link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+{% endblock %}
+
+
+{% block main %}
+    <div class="addnews">
+        <form method="post" class="addnews_form">
+        {% csrf_token %}
+
+            <div>
+                <label for="text_article">Введите текст статьи</label>
+                <textarea name="desc">{{ view.desc }}</textarea>
+            </div>
+            <div class="div-addnews_form-btn">
+                <button type="submit" class="addnews_form-btn">Изменить</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
