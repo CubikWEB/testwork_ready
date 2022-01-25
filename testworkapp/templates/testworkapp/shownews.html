@@ -5,9 +5,7 @@
 
     <div class="open_article" id="{{ news.id }}">
         <div class="open_article-back">
-            <a href="{% url 'home' %}">
-                <button>Назад</button>
-            </a>
+            <a href="{{request.META.HTTP_REFERER}}"><button>Назад</button></a>
         </div>
         <div class="open_article-name">
             {{ news.title }}
