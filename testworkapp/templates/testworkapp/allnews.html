@@ -52,8 +52,8 @@
 
         {% if page_obj.has_previous %}
             <div class="select_page">
-                <a href="?page=1"><button>&laquo; Первая</button></a>
-                <a href="?page={{ page_obj.previous_page_number }}"><button>Предыдущая</button></a>
+                <a href="?page=1" class="button-page">&laquo; Первая</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="button-page">Предыдущая</a>
             </div>
         {% endif %}
 
@@ -69,8 +69,8 @@
 
         {% if page_obj.has_next %}
             <div class="select_page">
-                <a href="?page={{ page_obj.next_page_number }}"><button>Следующая</button></a>
-                <a href="?page={{ page_obj.paginator.num_pages }}"><button>Последняя &raquo;</button></a>
+                <a href="?page={{ page_obj.next_page_number }}" class="button-page">Следующая</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="button-page">Последняя &raquo;</a>
             </div>
     {% endif %}
 

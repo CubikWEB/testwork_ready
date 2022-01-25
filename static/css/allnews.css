@@ -11,10 +11,14 @@
     font-style: italic;
     font-size: 20px;
     margin: 10px 5px;
+    width: 30%;
+    padding: 0;
 
 }
+.select_page{
+}
 .current-page{
-     display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -22,10 +26,10 @@
 .button-page{
     background-color: var(--color-text);
     color: var(--hover-text);
-    margin: 0 5px;
+    margin: 5px 5px;
     display: block;
-    width: 20px;
-    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -38,4 +42,21 @@
     background-color: var(--hover-text);
     border: 1px solid var(--color-text);
     transition: .3s ease-in;
+}
+@media screen and (max-width:650px){
+    .current-page, .select_page{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:400px){
+    .button-page{
+        margin: 1px;
+    }
+    .current-page{
+        flex-direction: column;
+    }
+    .current-page, .select_page{
+        font-size: 12px;
+    }
 }
