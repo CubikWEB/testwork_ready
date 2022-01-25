@@ -1,1 +1,80 @@
 {% extends 'testworkapp/base.html' %}
+{% load static %}
+
+
+{% block addstyle %}
+    <link rel="stylesheet" href="{% static 'CSS/allnews.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="news">
+        {% for el in page_obj %}
+         <div class="news_item" id="{{ el.id }}">
+                    <div class="news_item-img">
+                        <img src="{{ el.img.url }}" alt="#">
+                    </div>
+                    <div class="news_item-text">
+                        <div>
+                            <a href="shownews/{{ el.id }}">
+                                <button>Показать новость</button>
+                            </a>
+                        </div>
+                        <div class="text_name">
+                            <div class="text_name-item">
+                                {{ el.title}}
+                            </div>
+                        </div>
+                        <div class="text_desc">
+                            <div class="text_desc-item">
+                                {{ el.desc}}
+                            </div>
+                        </div>
+                        <div class="text_date">
+                            <div class="text_date-item">
+                                {{ el.date }}
+                            </div>
+                        </div>
+                        <div class="text_views">
+                            <div class="text_views-item">
+                                {{ el.views }}
+                                <span> просмотра(ов)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="edit/{{ el.id }}"><button type="submit">Редактировать</button></a>
+                        </div>
+
+                    </div>
+                </div>
+    {% endfor %}
+
+        <div class="select_all-page">
+
+        {% if page_obj.has_previous %}
+            <div class="select_page">
+                <a href="?page=1"><button>&laquo; Первая</button></a>
+                <a href="?page={{ page_obj.previous_page_number }}"><button>Предыдущая</button></a>
+            </div>
+        {% endif %}
+
+        <span class="current-page">
+
+            {% for i in range %}
+                <a href="?page={{ i }}" class="button-page">
+                    {{ i }}
+                </a>
+            {% endfor %}
+
+        </span>
+
+        {% if page_obj.has_next %}
+            <div class="select_page">
+                <a href="?page={{ page_obj.next_page_number }}"><button>Следующая</button></a>
+                <a href="?page={{ page_obj.paginator.num_pages }}"><button>Последняя &raquo;</button></a>
+            </div>
+    {% endif %}
+
+    </div>
+    </div>
+
+{% endblock %}

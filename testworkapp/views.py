@@ -1,5 +1,5 @@
 import datetime
-
+from django.core.paginator import Paginator
 from django.shortcuts import render,redirect
 from django.http import HttpResponseNotFound, HttpResponseRedirect
 from .models import NewsList, comment, backsaids
@@ -15,10 +15,14 @@ def index(request):
 
 def allnews (request):
     news = NewsList.objects.order_by('date')
+    paginator = Paginator(news, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
-        'news': news,
+        'page_obj': page_obj,
+        'range': range(1, page_obj.paginator.num_pages+1)
     }
-    return render(request, 'testworkapp/main.html', context)
+    return render(request, 'testworkapp/allnews.html', context)
 
 def addnews(request):
     error = ''
